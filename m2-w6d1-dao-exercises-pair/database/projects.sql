@@ -1,7 +1,5 @@
-CREATE SEQUENCE seq_employee_id;
-
 CREATE TABLE employee (
-	employee_id integer NOT NULL DEFAULT nextval('seq_employee_id'),
+	employee_id serial,
 	department_id integer,
 	first_name varchar(20) NOT NULL,
 	last_name varchar(30) NOT NULL,
@@ -12,18 +10,14 @@ CREATE TABLE employee (
 	CONSTRAINT ck_gender CHECK (gender IN ('M', 'F'))
 );
 
-CREATE SEQUENCE seq_department_id;
-
 CREATE TABLE department (
-	department_id integer NOT NULL DEFAULT nextval('seq_department_id'),
+	department_id serial,
 	name varchar(40) UNIQUE NOT NULL,
 	CONSTRAINT pk_department_department_id PRIMARY KEY (department_id)
 );
 
-CREATE SEQUENCE seq_project_id;
-
 CREATE TABLE project (
-	project_id integer NOT NULL DEFAULT nextval('seq_project_id'),
+	project_id serial,
 	name varchar(40) UNIQUE NOT NULL,
 	from_date date,
 	to_date date,
